@@ -71,19 +71,23 @@ public class OrganizadorString {
 
 
         if (!bandera){
-            origen.desmmarcar();
-            listaResultado.remove(listaResultado.size()-1);
-            if (busquedaNodo(origen, lista, listaResultado).getValue().equals("")){
-                return false;
-            }else{
-                return busqueda(busquedaNodo(origen, lista, listaResultado), lista, listaResultado);
+            if (lista.size() == listaResultado.size()){
+                return true;
             }
+            else{
+                origen.desmmarcar();
+                listaResultado.remove(listaResultado.size()-1);
+                if (busquedaNodo(origen, lista, listaResultado).getValue().equals("")){
+                    return false;
+                }else{
+                    return busqueda(busquedaNodo(origen, lista, listaResultado), lista, listaResultado);
+                }
+            }
+
 
         }
 
-        if (lista.size() == listaResultado.size())
-            return true;
-        else
+
             return false;
 
     }
