@@ -39,7 +39,7 @@ public class OrganizadorString {
             }
         }
 
-        if(resultado.equals("")){
+        if(resultado.getValue().equals("")){
             if (puntero == lista.size() && resultado == null){return resultado;}
             for(int i = 0; i < lista.size(); i++){
                 if (lista.get(i).getValue().equals(listaResultado.get(listaResultado.size()-1).getValue())){
@@ -73,7 +73,7 @@ public class OrganizadorString {
         if (!bandera){
             origen.desmmarcar();
             listaResultado.remove(listaResultado.size()-1);
-            if (busquedaNodo(origen, lista, listaResultado) == null){
+            if (busquedaNodo(origen, lista, listaResultado).getValue().equals("")){
                 return false;
             }else{
                 return busqueda(busquedaNodo(origen, lista, listaResultado), lista, listaResultado);
