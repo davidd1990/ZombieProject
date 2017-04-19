@@ -28,27 +28,44 @@ public class OrganizadorString {
         Nodo resultado = new Nodo(), anterior = new Nodo();
 
         for(int i = 0; i < lista.size(); i++){
-            if (lista.get(i).getValue().equals(valor)){
+            if (lista.get(i).getValue().equals(valor.getValue())){
                 puntero = i;
             }
         }
 
+
         for(int i = puntero+1; i < lista.size(); i++){
-            if (!lista.get(i).isMarca() && validar(lista.get(i).getValue(), listaResultado.get(listaResultado.size()-1).getValue())){
-                resultado = lista.get(i);
+            if(listaResultado.size() > 0){
+                if (!lista.get(i).isMarca() && validar(lista.get(i).getValue(), listaResultado.get(listaResultado.size()-1).getValue())){
+                    lista.get(i).marcar();
+                    resultado = lista.get(i);
+                    listaResultado.add(lista.get(i));
+                }
             }
+            else {
+                    lista.get(i).marcar();
+                    resultado = lista.get(i);
+                    listaResultado.add(lista.get(i));
+                }
         }
 
         if(resultado.getValue().equals("")){
-            if (puntero == lista.size() && resultado == null){return resultado;}
-            for(int i = 0; i < lista.size(); i++){
-                if (lista.get(i).getValue().equals(listaResultado.get(listaResultado.size()-1).getValue())){
-                    lista.get(i).desmmarcar();
-                }
+            if ((puntero+1) == lista.size()){
+                return new Nodo();
             }
-            anterior = listaResultado.get(listaResultado.size()-1);
-            listaResultado.remove(listaResultado.size()-1);
-            return busquedaNodo(anterior, lista, listaResultado);
+
+
+                for (int i = 0; i < lista.size(); i++) {
+                    if(listaResultado.size() > 0)
+                        if (lista.get(i).getValue().equals(listaResultado.get(i).getValue())) {
+                            lista.get(i).desmmarcar();
+                            listaResultado.remove(listaResultado.size()-1);
+                            return busquedaNodo(lista.get(i), lista, listaResultado);
+                    }else{
+                        return new Nodo();
+                    }
+                }
+
         }
 
         return resultado;
@@ -62,7 +79,7 @@ public class OrganizadorString {
             if (!lista.get(i).isMarca()){
                 if (validar(origen.getValue(), lista.get(i).getValue())){
                     lista.get(i).marcar();
-                    listaResultado.set((listaResultado.size()+1), lista.get(i));
+                    listaResultado.add(lista.get(i));
                     bandera = true;
                     return busqueda(lista.get(i), lista, listaResultado);
                 }
@@ -76,7 +93,7 @@ public class OrganizadorString {
             }
             else{
                 origen.desmmarcar();
-                listaResultado.remove(listaResultado.size()-1);
+                if(listaResultado.size() > 0) listaResultado.remove(listaResultado.size()-1);
                 if (busquedaNodo(origen, lista, listaResultado).getValue().equals("")){
                     return false;
                 }else{
@@ -99,6 +116,31 @@ public class OrganizadorString {
         ArrayList<Nodo> listaResultado   = new ArrayList<Nodo>();
 
 
+        Nodo n1 = new Nodo();
+        n1.setValue("bbbc");
+        n1.marcar();
+        listaResultado.add(n1);
+        lista.add(n1);
+
+        Nodo n2 = new Nodo();
+        n2.setValue("bbbx");
+        lista.add(n2);
+
+        Nodo n3 = new Nodo();
+        n3.setValue("abbx");
+        lista.add(n3);
+
+       /* Nodo n4 = new Nodo();
+        n4.setValue("abbd");
+        lista.add(n4);
+
+        Nodo n5 = new Nodo();
+        n5.setValue("abbb");
+        lista.add(n5);*/
+
+
+        System.out.println(busqueda(n1, lista, listaResultado));
+        System.out.println(listaResultado);
         validar("ababababa", "ababccaba");
     }
 
