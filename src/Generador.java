@@ -35,9 +35,9 @@ public class Generador {
         }
         b.close(); 
         
-        for(int j=0; j<listas.size(); j++){
+        /*for(int j=0; j<listas.size(); j++){
         	System.out.println(listas.get(j));
-        }
+        }*/
        return listas;	
 	}
 	

@@ -107,7 +107,7 @@ public class OrganizadorString {
     }
 
 
-    public static void main(String[] args) {
+   /*public static void main(String[] args) {
         ArrayList<Nodo> lista            = new ArrayList<Nodo>();
         ArrayList<Nodo> listaResultado   = new ArrayList<Nodo>();
 
@@ -126,19 +126,19 @@ public class OrganizadorString {
         n3.setValue("abbx");
         lista.add(n3);
 
-       /* Nodo n4 = new Nodo();
+       Nodo n4 = new Nodo();
         n4.setValue("abbd");
         lista.add(n4);
 
         Nodo n5 = new Nodo();
         n5.setValue("abbb");
-        lista.add(n5);*/
+        lista.add(n5);
 
-
+		System.out.println("NodoEnvia: "+ nodo.getValue());
         System.out.println(busqueda(n1, lista, listaResultado));
         System.out.println(listaResultado);
-        validar("ababababa", "ababccaba");
-    }
+        //validar("ababababa", "ababccaba");
+    }*/
 
 
 }
