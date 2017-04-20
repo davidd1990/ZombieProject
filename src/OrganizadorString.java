@@ -1,6 +1,3 @@
-/**
- * Created by JUAN DAVID on 19/04/2017.
- */
 import java.util.ArrayList;
 
 
@@ -111,7 +108,6 @@ public class OrganizadorString {
 
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
         ArrayList<Nodo> lista            = new ArrayList<Nodo>();
         ArrayList<Nodo> listaResultado   = new ArrayList<Nodo>();
 
