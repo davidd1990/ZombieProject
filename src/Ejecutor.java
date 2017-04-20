@@ -26,16 +26,17 @@ public class Ejecutor {
 					String texto = ejercicioActual.get(j);
 					nodo.setValue(texto);
 					nodo.marcar();
+					nodo.setId(j);
 					primerNodo = nodo;
 					listaResultado.add(nodo);
 					lista.add(nodo);
 				}else{
 					String texto = ejercicioActual.get(j);
 					nodo.setValue(texto);
+					nodo.setId(j);
 					lista.add(nodo);
 				}
 			}
-			System.out.println("PrimerNodo: "+ primerNodo.getValue());
 			System.out.println(OrganizadorString.busqueda(primerNodo, lista, listaResultado));
 			for(int x=0; x<listaResultado.size(); x++){
 				System.out.println("POS "+x+" "+listaResultado.get(x).getValue());

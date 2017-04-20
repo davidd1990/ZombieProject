@@ -1,10 +1,16 @@
-/**
- * Created by JUANDAVID on 18/04/17.
- */
 public class Nodo {
 
     private String value = "";
     private boolean marca = false;
+    private int id = 0;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getValue() {
         return value;
