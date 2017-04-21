@@ -15,9 +15,9 @@ public class OrganizadorString {
             }
 
         }
-        return true;
+        return bandera;
 
-    }
+    } 
 
     public static Nodo busquedaNodo(Nodo valor, ArrayList<Nodo>lista, ArrayList<Nodo>listaResultado){
         int puntero = valor.getId()+1;
@@ -54,6 +54,7 @@ public class OrganizadorString {
         return resultado;
     }
 
+    
     public static boolean busqueda (Nodo origen, ArrayList<Nodo> lista, ArrayList<Nodo> listaResultado){
 
         for (int i = 0; i < lista.size(); i++) {
@@ -89,7 +90,8 @@ public class OrganizadorString {
     }
 
 
-   public static void main(String[] args) {
+   /*public static void main(String[] args) {
+
         ArrayList<Nodo> lista            = new ArrayList<Nodo>();
         ArrayList<Nodo> listaResultado   = new ArrayList<Nodo>();
 
@@ -110,6 +112,6 @@ public class OrganizadorString {
         for (int i = 0 ; i < listaResultado.size(); i++){
         	System.out.println(listaResultado.get(i).getValue());
         }
-    }
-
+   }*/
 }
+
