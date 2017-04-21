@@ -2,7 +2,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Ejecutor {
+public class Principal {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
 		
@@ -10,17 +10,20 @@ public class Ejecutor {
 		OrganizadorString organizador = new OrganizadorString(); 
 		
 		ArrayList<ArrayList> ejercicio = generador.generadorArrayList();
+		ArrayList<ArrayList> arrSalida = new ArrayList<ArrayList>();
+		ArrayList<Boolean> arrResultado = new ArrayList<Boolean>();
 		Nodo primerNodo = new Nodo();
 		
-		
-		for(int i=0; i< ejercicio.size(); i++){
+		//Se ejecuta tantas veces como ejercicios allá en el archivo
+		for(int i=0; i< ejercicio.size(); i++)
+		{
 			ArrayList<String> ejercicioActual = ejercicio.get(i);
-			System.out.println("EJERCICIO ACTUAL: "+ ejercicioActual);
 			ArrayList<Nodo> lista = new ArrayList<Nodo>();
 			ArrayList<Nodo> listaResultado = new ArrayList<Nodo>();
 			
 			//Se llena la lista con nodos
-			for(int j=0; j<ejercicioActual.size(); j++){
+			for(int j=0; j<ejercicioActual.size(); j++)
+			{
 				Nodo nodo = new Nodo();
 				if(j==0){
 					String texto = ejercicioActual.get(j);
@@ -37,13 +40,18 @@ public class Ejecutor {
 					lista.add(nodo);
 				}
 			}
-			System.out.println(OrganizadorString.busqueda(primerNodo, lista, listaResultado));
-			for(int x=0; x<listaResultado.size(); x++){
-				System.out.println("POS "+x+" "+listaResultado.get(x).getValue());
+			boolean resultado = OrganizadorString.busqueda(primerNodo, lista, listaResultado);
+			if(listaResultado.size() == 0){
+				resultado = false;
+				arrSalida.add(lista);
+				arrResultado.add(resultado);
+			}else{
+				arrSalida.add(lista);
+				arrResultado.add(resultado);
 			}
-	        
 			
 		}
+		generador.generarArchivoSalida(arrSalida, arrResultado);
 	}
 
 }

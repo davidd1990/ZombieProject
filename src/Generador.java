@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -13,12 +14,9 @@ import javax.swing.JFileChooser;
 public class Generador {
 	
 	public static ArrayList<ArrayList> generadorArrayList() throws FileNotFoundException, IOException {
-		
 		JFileChooser file = new JFileChooser();
 		file.showOpenDialog(file);
 		File archivo = file.getSelectedFile();
-		
-		
 		ArrayList<ArrayList> listas = new ArrayList<ArrayList>();
         String cadena;
         FileReader f = new FileReader(archivo);
@@ -34,33 +32,38 @@ public class Generador {
         	listas.add(vector);
         }
         b.close(); 
-        
-        /*for(int j=0; j<listas.size(); j++){
-        	System.out.println(listas.get(j));
-        }*/
        return listas;	
 	}
 	
-	public static void generadorDeArchivoSalida(ArrayList resultado) throws FileNotFoundException{
-		resultado= new ArrayList();
-		File file = new File("salida.out");
-		PrintWriter pw = new PrintWriter(file);
-		for(int i=0; i>resultado.size() ;i++)
-		{
-			if(i == resultado.size()){
-				pw.print(resultado.get(i));
-			}else{
-				pw.print(resultado.get(i)+" ");
-			}
-		    
-		}
-		pw.close(); 
-	}
 	
-	
-	
-	public static void main(String[] args) throws FileNotFoundException, IOException {
-		generadorArrayList();
-	}
+	public void generarArchivoSalida(ArrayList<ArrayList> arrSalida, ArrayList<Boolean> arrResultado){
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        try{
+            fichero = new FileWriter("salida.txt");
+            pw = new PrintWriter(fichero);
+
+            for (int i = 0; i < arrSalida.size(); i++) {
+    			for (int j = 0; j < arrSalida.get(i).size(); j++) {
+    				Nodo nodo = (Nodo) arrSalida.get(i).get(j);
+    				if(j+1 == arrSalida.get(i).size()){
+    					pw.println(nodo.getValue()+" = "+ arrResultado.get(i));
+    				}else{
+    					pw.print(nodo.getValue()+" ");
+    				}
+    			}
+    		}
+            System.out.println("Archivo generado con exito");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+           if (null != fichero)
+              fichero.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
+    }
 
 }

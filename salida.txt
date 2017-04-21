@@ -1,0 +1,8 @@
+aba bbb bab = false
+ab bb aa = true
+q q = true
+zzzzab zzzzbb zzzzaa = true
+ab ad ef eg = false
+abc abx axx abc = true
+abc abx axx abx abc = true
+f g a h = true

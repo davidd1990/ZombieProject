@@ -89,34 +89,27 @@ public class OrganizadorString {
     }
 
 
-   /*public static void main(String[] args) {
+   public static void main(String[] args) {
         ArrayList<Nodo> lista            = new ArrayList<Nodo>();
         ArrayList<Nodo> listaResultado   = new ArrayList<Nodo>();
 
         Nodo n1 = new Nodo();
-        n1.setValue("ab");
+        n1.setValue("q");
         n1.setId(0);
         n1.marcar();
         listaResultado.add(n1);
         lista.add(n1);
 
         Nodo n2 = new Nodo();
-        n2.setValue("bb");
+        n2.setValue("q");
         n2.setId(1);
         lista.add(n2);
-
-        Nodo n3 = new Nodo();
-        n3.setValue("aa");
-        n3.setId(2);
-        lista.add(n3);
-
-
+        
 		System.out.println("NodoEnvia: "+ n1.getValue());
         System.out.println(busqueda(n1, lista, listaResultado));
-        for (int i = 0 ; i < listaResultado.size(); i++)
-            System.out.println(listaResultado.get(i).getValue());
-
-        //validar("ababababa", "ababccaba");
-    }*/
+        for (int i = 0 ; i < listaResultado.size(); i++){
+        	System.out.println(listaResultado.get(i).getValue());
+        }
+    }
 
 }
