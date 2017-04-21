@@ -18,7 +18,7 @@ public class OrganizadorString {
         }
         return true;
 
-    }
+    } 
 
     public static Nodo busquedaNodo(Nodo valor, ArrayList<Nodo>lista, ArrayList<Nodo>listaResultado){
         int puntero = valor.getId()+1;
