@@ -37,7 +37,6 @@ public class Ejecutor {
 					lista.add(nodo);
 				}
 			}
-			System.out.println("PrimerNodo: "+ primerNodo.getValue());
 			System.out.println(OrganizadorString.busqueda(primerNodo, lista, listaResultado));
 			for(int x=0; x<listaResultado.size(); x++){
 				System.out.println("POS "+x+" "+listaResultado.get(x).getValue());

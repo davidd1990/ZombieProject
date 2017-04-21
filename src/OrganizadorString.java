@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-
 public class OrganizadorString {
 
 
@@ -95,18 +94,27 @@ public class OrganizadorString {
         ArrayList<Nodo> listaResultado   = new ArrayList<Nodo>();
 
         Nodo n1 = new Nodo();
+<<<<<<< HEAD
         n1.setValue("abc");
+=======
+        n1.setValue("ab");
+>>>>>>> origin/master
         n1.setId(0);
         n1.marcar();
         listaResultado.add(n1);
         lista.add(n1);
 
         Nodo n2 = new Nodo();
+<<<<<<< HEAD
         n2.setValue("abx");
+=======
+        n2.setValue("bb");
+>>>>>>> origin/master
         n2.setId(1);
         lista.add(n2);
 
         Nodo n3 = new Nodo();
+<<<<<<< HEAD
         n3.setValue("axx");
         n3.setId(2);
         lista.add(n3);
@@ -115,13 +123,26 @@ public class OrganizadorString {
        n4.setValue("abc");
        n4.setId(3);
        lista.add(n4);
+=======
+        n3.setValue("aa");
+        n3.setId(2);
+        lista.add(n3);
+
+>>>>>>> origin/master
 
 		System.out.println("NodoEnvia: "+ n1.getValue());
         System.out.println(busqueda(n1, lista, listaResultado));
         for (int i = 0 ; i < listaResultado.size(); i++)
             System.out.println(listaResultado.get(i).getValue());
+<<<<<<< HEAD
 
         //validar("ababababa", "ababccaba");
     }
 
+=======
+
+        //validar("ababababa", "ababccaba");
+    }*/
+
+>>>>>>> origin/master
 }
