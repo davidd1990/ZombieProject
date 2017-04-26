@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+
 public class Nodo {
 
     private String value = "";
     private boolean marca = false;
+    private ArrayList<Nodo> arcos = new ArrayList<Nodo>();
     private int id = 0;
 
     public int getId() {
@@ -36,4 +39,13 @@ public class Nodo {
         this.marca = false;
     }
 
+    public ArrayList<Nodo> getArcos() {
+
+        return arcos;
+    }
+
+    public void setArcos(Nodo nodo) {
+
+        this.arcos.add(nodo);
+    }
 }
